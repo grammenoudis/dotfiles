@@ -16,7 +16,8 @@ yabai -m config window_opacity_duration      0.0
 yabai -m config active_window_opacity        1
 yabai -m config normal_window_opacity        1
 yabai -m config window_border                on
-yabai -m config window_border_width          3
+yabai -m config window_border_width          2
+yabai -m config window_border_radius         0
 yabai -m config active_window_border_color   0xFF88C0D0
 yabai -m config normal_window_border_color   on
 yabai -m config insert_feedback_color        0xff61afef
@@ -28,25 +29,29 @@ yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
 
 yabai -m config layout                       bsp
-yabai -m config top_padding                  55
-yabai -m config bottom_padding               10
-yabai -m config left_padding                 10
-yabai -m config right_padding                10
-yabai -m config window_gap                   10
+yabai -m config top_padding                  25
+yabai -m config bottom_padding               2
+yabai -m config left_padding                 2 
+yabai -m config right_padding                2
+yabai -m config window_gap                   1
 
-# yabai -m space 1 --label I
-# yabai -m space 2 --label II
-# yabai -m space 3 --label III
-# yabai -m space 4 --label IV
-# yabai -m space 5 --label V
-# yabai -m space 6 --label VI
-# yabai -m space 7 --label VII
-# yabai -m space 8 --label VII
-# yabai -m space 9 --label X
-# yabai -m space 10 --label XI
-
+# yabai -m space 1 --label 1
+# yabai -m space 2 --label 2
+# yabai -m space 3 --label 3
+# yabai -m space 4 --label 4
+# yabai -m space 5 --label 5
+# yabai -m space 6 --label 6
+# yabai -m space 7 --label 7
+# yabai -m space 8 --label 8
+# yabai -m space 9 --label 9
+# yabai -m space 10 --label 10
+#
 # yabai -m rule --add app="Code" space=1
 # yabai -m rule --add app="Firefox" space=2
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="PS Remote Play" manage=off
 yabai -m rule --add app="Steam" manage=off
+
+### Sketchybar ###
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"         # Notify sketchybar when space changes
+yabai -m signal --add event=window_title_changed action="sketchybar --trigger title_change"   # Notify sketchybar when the focused app changes
