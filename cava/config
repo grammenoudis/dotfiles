@@ -3,33 +3,28 @@
 
 [general]
 
-# Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
-; mode = normal
-
 # Accepts only non-negative values.
 ; framerate = 60
 
 # 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
 # new as of 0.6.0 autosens of low values (dynamic range)
-# 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens. DEPRECATED as of 0.6.0
 ; autosens = 1
-; overshoot = 20
 
 # Manual sensitivity in %. If autosens is enabled, this will only be the initial value.
 # 200 means double height. Accepts only non-negative values.
 ; sensitivity = 100
 
-# The number of bars (0-200). 0 sets it to auto (fill up console).
+# The number of bars (0-200).0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
-; bars = 0
-; bar_width = 2
-; bar_spacing = 1
+bars = 0
+bar_width = 1
+bar_spacing = 2
 # bar_height is only used for output in "noritake" format
 ; bar_height = 32
 
 # For SDL width and space between bars is in pixels, defaults are:
 ; bar_width = 20
-; bar_spacing = 5
+; bar_spacing = 0
 
 
 # Lower and higher cutoff frequencies for lowest and highest bars
@@ -76,6 +71,8 @@
 ; method = portaudio
 ; source = auto
 
+method = portaudio
+source = "Background Music"
 
 [output]
 
@@ -92,12 +89,6 @@
 #
 # 'sdl' uses the Simple DirectMedia Layer to render in a graphical context.
 ; method = ncurses
-
-# Orientation of the visualization. Can be 'bottom', 'top', 'left' or 'right'.
-# Default is 'bottom'. Other orientations are only supported on sdl and ncruses
-# output. Note: many fonts have weird glyphs for 'top' and 'right' characters,
-# which can make ncurses not look right.
-; orientation = bottom
 
 # Visual channels. Can be 'stereo' or 'mono'.
 # 'stereo' mirrors both channels with low frequencies in center.
@@ -131,52 +122,25 @@
 ; sdl_x = -1
 ; sdl_y= -1
 
-# set label on bars on the x-axis. Can be 'frequency' or 'none'. Default: 'none'
-# 'frequency' displays the lower cut off frequency of the bar above.
-# Only supported on ncurses and noncurses output.
-; xaxis = none
-
-# enable alacritty synchronized updates. 1 = on, 0 = off
-# removes flickering in alacritty terminal emeulator.
-# defaults to off since the behaviour in other terminal emulators is unknown
-; alacritty_sync = 0
-
 [color]
 
 # Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
 # Or defined by hex code '#xxxxxx' (hex code must be within ''). User defined colors requires
-# a terminal that can change color definitions such as Gnome-terminal or rxvt.
+# ncurses output method and a terminal that can change color definitions such as Gnome-terminal or rxvt.
+# if supported, ncurses mode will be forced on if user defined colors are used.
 # default is to keep current terminal color
 ; background = default
-; foreground = default
+; foreground = #202020
 
 # SDL only support hex code colors, these are the default:
 ; background = '#111111'
 ; foreground = '#33cccc'
 
-
-# Gradient mode, only hex defined colors are supported,
-# background must also be defined in hex or remain commented out. 1 = on, 0 = off.
-# You can define as many as 8 different colors. They range from bottom to top of screen
-; gradient = 0
-; gradient_count = 8
-; gradient_color_1 = '#59cc33'
-; gradient_color_2 = '#80cc33'
-; gradient_color_3 = '#a6cc33'
-; gradient_color_4 = '#cccc33'
-; gradient_color_5 = '#cca633'
-; gradient_color_6 = '#cc8033'
-; gradient_color_7 = '#cc5933'
-; gradient_color_8 = '#cc3333'
-
-
-
 [smoothing]
 
 # Percentage value for integral smoothing. Takes values from 0 - 100.
 # Higher values means smoother, but less precise. 0 to disable.
-# DEPRECATED as of 0.8.0, use noise_reduction instead
-; integral = 77
+; integral = 76
 
 # Disables or enables the so-called "Monstercat smoothing" with or without "waves". Set to 0 to disable.
 ; monstercat = 0
@@ -184,18 +148,11 @@
 
 # Set gravity percentage for "drop off". Higher values means bars will drop faster.
 # Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
-# DEPRECATED as of 0.8.0, use noise_reduction instead
-; gravity = 100
+gravity = 42
 
 
 # In bar height, bars that would have been lower that this will not be drawn.
-# DEPRECATED as of 0.8.0
 ; ignore = 0
-
-# Noise reduction, float 0 - 1. default 0.77
-# the raw visualization is very noisy, this factor adjusts the integral and gravity filters to keep the signal smooth
-# 1 will be very slow and smooth, 0 will be fast but noisy.
-; noise_reduction = 0.77
 
 
 [eq]
