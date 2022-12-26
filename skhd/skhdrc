@@ -51,5 +51,5 @@ cmd + alt - 5 : yabai -m window --space 5; yabai -m space --focus 5
 cmd + alt - 6 : yabai -m window --space 6; yabai -m space --focus 6
 cmd + alt - 7 : yabai -m window --space 7; yabai -m space --focus 7
 cmd + alt - 8 : yabai -m window --space 8; yabai -m space --focus 8
-cmd + alt - left : yabai -m window --space prev; yabai -m space --focus prev    # To the space on the left
-cmd + alt - right : yabai -m window --space next; yabai -m space --focus next   # To the spave on the right
+cmd + alt - h : yabai -m window --space prev; yabai -m space --focus prev    # To the space on the left
+cmd + alt - l : yabai -m window --space next; yabai -m space --focus next   # To the spave on the right
