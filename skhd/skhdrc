@@ -27,7 +27,7 @@ cmd + shift - l : yabai -m window --resize right:20:0
 cmd + shift - c : yabai -m window --close
 
 ### Open dmenu ###
-cmd - space : open -a Xquartz && /bin/bash -l -c "sh ~/dev/dots/dmenu/apps.sh"  # App launcher
+# cmd + shift - return : open -a Xquartz && /bin/bash -l -c "sh ~/dev/dots/dmenu/apps.sh"  # App launcher
 
 ### Send a window to a space ###
 cmd + shift - 1 : yabai -m window --space 1
